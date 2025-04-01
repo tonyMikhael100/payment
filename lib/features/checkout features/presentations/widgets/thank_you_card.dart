@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:payment_app/core/utils/styles.dart';
 import 'package:payment_app/features/checkout%20features/presentations/widgets/payment_item_info.dart';
 
@@ -31,6 +32,44 @@ class ThankYouCard extends StatelessWidget {
               color: Color(0xffC7C7C7),
               indent: 15,
               endIndent: 15,
+            ),
+            SizedBox(height: 24),
+            PaymentItemInfo(title: "Total", subtitle: r"$50.96"),
+            SizedBox(height: 30),
+            Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: ListTile(
+                leading: SvgPicture.asset('assets/images/master_card.svg'),
+                title: Text("Credit Card", style: Styles.styleBold18),
+                subtitle: Text(
+                  "Master Card **78",
+                  style: Styles.styleBold18.copyWith(
+                    color: Colors.black.withOpacity(0.5),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 90),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                SvgPicture.asset('assets/images/Vector.svg'),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 29, vertical: 15),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(color: Color(0xff34A853), width: 2),
+                  ),
+                  child: Text(
+                    "Paid",
+                    style: Styles.style24.copyWith(color: Color(0xff34A853)),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
