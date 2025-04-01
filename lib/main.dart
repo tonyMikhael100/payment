@@ -12,6 +12,6 @@ class PaymentApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: ThankYouView());
+    return MaterialApp(home: MyCartView());
   }
 }

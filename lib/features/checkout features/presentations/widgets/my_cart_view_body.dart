@@ -3,6 +3,7 @@ import 'package:payment_app/core/utils/styles.dart';
 import 'package:payment_app/features/checkout%20features/presentations/views/payment_details_view.dart';
 import 'package:payment_app/features/checkout%20features/presentations/widgets/custom_elevated_button.dart';
 import 'package:payment_app/features/checkout%20features/presentations/widgets/order_info_item.dart';
+import 'package:payment_app/features/checkout%20features/presentations/widgets/payment_method_listview.dart';
 
 class MyCartViewBody extends StatelessWidget {
   const MyCartViewBody({super.key});
@@ -34,12 +35,24 @@ class MyCartViewBody extends StatelessWidget {
           CustomElevatedButton(
             title: "Complete Payment",
             onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) {
-                    return PaymentDetailsView();
-                  },
-                ),
+              showModalBottomSheet(
+                context: context,
+                builder: (context) {
+                  return Container(
+                    margin: EdgeInsets.all(16),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        PaymetnMethodListView(),
+                        SizedBox(height: 20),
+                        CustomElevatedButton(
+                          title: "Payment",
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+                  );
+                },
               );
             },
           ),

@@ -55,11 +55,11 @@ class ThankYouCard extends StatelessWidget {
             ),
             SizedBox(height: 90),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SvgPicture.asset('assets/images/Vector.svg'),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 29, vertical: 15),
+                  padding: EdgeInsets.symmetric(horizontal: 29, vertical: 12),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(color: Color(0xff34A853), width: 2),
