@@ -14,3 +14,9 @@ final class PaymentFailureState extends PaymentState {
 
   PaymentFailureState({required this.errMessage});
 }
+
+final class PaymentCanceledState extends PaymentState {
+  final String cancelMessage;
+
+  PaymentCanceledState({required this.cancelMessage});
+}

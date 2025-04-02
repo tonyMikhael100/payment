@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:meta/meta.dart';
 import 'package:payment_app/core/utils/stripe_service.dart';
 import 'package:payment_app/features/checkout%20features/data/models/payment_intent_input_model.dart';
@@ -17,9 +18,17 @@ class PaymentCubit extends Cubit<PaymentState> {
         paymentIntentInputModel: paymentIntentInputModel,
       );
       emit(PaymentSuccessState());
+    } on StripeException catch (e) {
+      print("Payment canceled: ${e.error.localizedMessage}");
+      emit(
+        PaymentCanceledState(
+          cancelMessage: e.error.localizedMessage.toString(),
+        ),
+      );
     } catch (e) {
-      print(e);
-      emit(PaymentFailureState(errMessage: e.toString()));
+      // Handle general errors
+      print("Payment failed: $e");
+      emit(PaymentFailureState(errMessage: 'There was an error'));
     }
   }
 }

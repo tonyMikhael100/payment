@@ -23,6 +23,9 @@ class PaymentButton extends StatelessWidget {
         } else if (state is PaymentFailureState) {
           SnackBar snackBar = SnackBar(content: Text(state.errMessage));
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        } else if (state is PaymentCanceledState) {
+          SnackBar snackBar = SnackBar(content: Text(state.cancelMessage));
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
         }
       },
       builder: (context, state) {
