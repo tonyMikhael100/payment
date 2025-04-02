@@ -18,7 +18,8 @@ class PaymentCubit extends Cubit<PaymentState> {
       );
       emit(PaymentSuccessState());
     } catch (e) {
-      emit(PaymentFailureState(errMessage: 'there is an error occured'));
+      print(e);
+      emit(PaymentFailureState(errMessage: e.toString()));
     }
   }
 }

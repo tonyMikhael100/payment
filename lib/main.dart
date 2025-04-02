@@ -6,6 +6,7 @@ import 'package:payment_app/features/checkout%20features/presentations/views/pay
 import 'package:payment_app/features/checkout%20features/presentations/views/thank_you_view.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   Stripe.publishableKey = ApiKeys.publishableKey;
   runApp(const PaymentApp());
 }
