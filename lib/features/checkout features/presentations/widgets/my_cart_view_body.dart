@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:payment_app/core/utils/styles.dart';
+import 'package:payment_app/features/checkout%20features/presentations/manager/cubit/payment_cubit.dart';
 import 'package:payment_app/features/checkout%20features/presentations/views/payment_details_view.dart';
 import 'package:payment_app/features/checkout%20features/presentations/widgets/custom_elevated_button.dart';
 import 'package:payment_app/features/checkout%20features/presentations/widgets/order_info_item.dart';
+import 'package:payment_app/features/checkout%20features/presentations/widgets/payment_button.dart';
 import 'package:payment_app/features/checkout%20features/presentations/widgets/payment_method_listview.dart';
 
 class MyCartViewBody extends StatelessWidget {
@@ -45,9 +48,9 @@ class MyCartViewBody extends StatelessWidget {
                       children: [
                         PaymetnMethodListView(),
                         SizedBox(height: 20),
-                        CustomElevatedButton(
-                          title: "Payment",
-                          onPressed: () {},
+                        BlocProvider(
+                          create: (context) => PaymentCubit(),
+                          child: PaymentButton(),
                         ),
                       ],
                     ),
@@ -62,3 +65,5 @@ class MyCartViewBody extends StatelessWidget {
     );
   }
 }
+
+

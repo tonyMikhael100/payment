@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:payment_app/core/utils/styles.dart';
 
 class CustomElevatedButton extends StatelessWidget {
-  const CustomElevatedButton({super.key, required this.title, this.onPressed});
+  const CustomElevatedButton({
+    super.key,
+    required this.title,
+    this.onPressed,
+    this.isLoading = false,
+  });
   final String title;
   final void Function()? onPressed;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +21,10 @@ class CustomElevatedButton extends StatelessWidget {
         backgroundColor: Color(0xff34A853),
         fixedSize: Size(MediaQuery.sizeOf(context).width, 73),
       ),
-      child: Text(title, style: Styles.style22),
+      child:
+          isLoading
+              ? CircularProgressIndicator()
+              : Text(title, style: Styles.style22),
     );
   }
 }
