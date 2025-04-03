@@ -16,6 +16,8 @@ class PaymentCubit extends Cubit<PaymentState> {
     try {
       await stripeService.makeAllPaymentSteps(
         paymentIntentInputModel: paymentIntentInputModel,
+        customerId:
+            'cus_S3x1cCIBC9k3bP', //the customer id you got when you sign up for new user
       );
       emit(PaymentSuccessState());
     } on StripeException catch (e) {

@@ -33,7 +33,11 @@ class PaymentButton extends StatelessWidget {
           title: "Payment",
           onPressed: () {
             BlocProvider.of<PaymentCubit>(context).makePayment(
-              PaymentIntentInputModel(amount: '100', currency: 'USD'),
+              PaymentIntentInputModel(
+                amount: '100',
+                currency: 'USD',
+                customer: 'cus_S3x1cCIBC9k3bP',
+              ),
             );
           },
           isLoading: state is PaymentLoadingState,
